@@ -119,9 +119,11 @@ public class DMagic {
 
    private static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
       for( String thisWord : wordList ) {
-         String chars = Arrays.sort(thisWord.toCharArray() );
-         System.out.println("a: " + thisWord + "   sorted: " 
-               + chars + "");
+         char[] chars = thisWord.toCharArray();
+         Arrays.sort( chars );
+         String output = new String(chars);
+//         System.out.println("a: " + thisWord + "   sorted: " + output + "");
+         
       }
    }
 
