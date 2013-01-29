@@ -126,7 +126,7 @@ public class DMagic {
       //anagram pairs
       Map<String, String> anagramPairs = new HashMap<String, String>();
       findAnagramPairs(linkedList, anagramPairs);
-
+      printPairResultList(anagramPairs, "Angram Pairs:");
 
 
       System.out.println("The magic is over :(");
@@ -134,7 +134,20 @@ public class DMagic {
 
 
    private static void findAnagramPairs(List<String> wordList, Map<String, String> anagramPairs ) {
-
+      for ( String thisWord : wordList ) {
+         if( thisWord.length() > 5 ) {
+             String reverseWord = new StringBuffer(thisWord).reverse().toString();
+             for ( String otherWord : wordList ) {
+//               System.out.println("Angram candidates: " + thisWord.toString() + "->"
+//                     + reverseWord + " and " + otherWord);
+                if( reverseWord.equals(otherWord) ) {
+               //System.out.println("Angram pair found: " + thisWord.toString() + " and " + otherWord);
+                   anagramPairs.put(thisWord, otherWord);
+                }
+             }//for other word
+         } //if length check
+         //System.out.print(".");
+      } //for this word
 
    } //findAnagramPairs
 
@@ -167,6 +180,19 @@ public class DMagic {
 //      System.out.println(" ================================================= ");
       for( String s : printList ) {
          System.out.println("-"+s);
+      }
+   }
+
+   private static void printPairResultList(Map<String, String> printList, String title) {
+      System.out.println(" == "+title+ " == ");
+      System.out.print(" ");
+      for (int i = 0; i < title.length()+6; i++) {
+          System.out.print("=");
+      }
+      System.out.print("\n");
+//      System.out.println(" ================================================= ");
+      for( String s : printList.keySet() ) {
+         System.out.println(" -"+s+"<=>"+printList.get(s));
       }
    }
 
