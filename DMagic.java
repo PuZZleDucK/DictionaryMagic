@@ -123,11 +123,20 @@ public class DMagic {
           }
       }
 
+      //anagram pairs
+      Map<String, String> anagramPairs = new HashMap<String, String>();
+      findAnagramPairs(linkedList, anagramPairs);
 
 
 
       System.out.println("The magic is over :(");
    } //main
+
+
+   private static void findAnagramPairs(List<String> wordList, Map<String, String> anagramPairs ) {
+
+
+   } //findAnagramPairs
 
 
    private static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
