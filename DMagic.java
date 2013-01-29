@@ -23,6 +23,7 @@ public class DMagic {
 
    public static void main(String[] args) {
       File wordFile = new File("en-common.wl");
+//      File wordFile = new File("dictionary.txt");
       Random rng = new Random();
       rng.setSeed(666);
       List<String> resultList = new ArrayList<String>();
@@ -123,30 +124,27 @@ public class DMagic {
       }
 
 
+
+
       System.out.println("The magic is over :(");
    } //main
 
 
    private static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
-      for( String thisWord : wordList ) {
+      for ( String thisWord : wordList ) {
           char[] chars = thisWord.toCharArray();
-          Arrays.sort( chars );
-          String alphabetizedWord = new String(chars);
+          Arrays.sort ( chars );
+          String alphabetizedWord = new String ( chars );
 //          System.out.println("a: " + thisWord + "   sorted: " + output + "");
-          List<String> currentEntries = anagramGroups.get(alphabetizedWord);
+          List<String> currentEntries = anagramGroups.get ( alphabetizedWord );
           if ( currentEntries == null ) {
               currentEntries = new ArrayList<String>();
-              anagramGroups.put(alphabetizedWord, currentEntries);
+              anagramGroups.put ( alphabetizedWord, currentEntries );
           }
-          if( ! currentEntries.contains(thisWord) ) {
-              currentEntries.add(thisWord);
+          if( ! currentEntries.contains ( thisWord ) ) {
+              currentEntries.add ( thisWord );
           }
-      }//for
-
-//      for ( List<String> currentEntries : anagramGroups.values() ) {
-//          System.out.println("group: " + currentEntries.get(0) + " - (" + currentEntries.size() + ")" );
-//      }
-
+       }//for
    } //groupAnagrams
 
 
