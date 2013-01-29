@@ -149,8 +149,13 @@ public class DMagic {
 
 
    private static void printResultList(List<String> printList, String title) {
-      System.out.println(" == "+title+" == ");
-      System.out.println(" =============================== ");
+      System.out.println(" == "+title+ " == ");
+      System.out.print(" ");
+      for (int i = 0; i < title.length()+6; i++) {
+          System.out.print("=");
+      }
+      System.out.print("\n");
+//      System.out.println(" ================================================= ");
       for( String s : printList ) {
          System.out.println("-"+s);
       }
