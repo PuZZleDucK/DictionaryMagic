@@ -109,8 +109,18 @@ public class DMagic {
 
       //anagram groups
       Map<String, List<String>> anagramMap = new HashMap<String, List<String>>();
-
       groupAnagrams(linkedList, anagramMap);
+      System.out.println("Anagram Groups of 7 or more words: ");
+      for ( List<String> currentEntries : anagramMap.values() ) {
+          if (currentEntries.size() > 6) {
+              System.out.print("Group of size " + currentEntries.size() + ":");
+              System.out.print("  [ ");
+              for( String thisEntry : currentEntries ) {
+                  System.out.print(thisEntry + " ");
+              }
+              System.out.print("]\n");
+          }
+      }
 
 
       System.out.println("The magic is over :(");
@@ -119,13 +129,23 @@ public class DMagic {
 
    private static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
       for( String thisWord : wordList ) {
-         char[] chars = thisWord.toCharArray();
-         Arrays.sort( chars );
-         String output = new String(chars);
-//         System.out.println("a: " + thisWord + "   sorted: " + output + "");
-         
-      }
-   }
+          char[] chars = thisWord.toCharArray();
+          Arrays.sort( chars );
+          String alphabetizedWord = new String(chars);
+//          System.out.println("a: " + thisWord + "   sorted: " + output + "");
+          List<String> currentEntries = anagramGroups.get(alphabetizedWord);
+          if ( currentEntries == null ) {
+              currentEntries = new ArrayList<String>();
+              anagramGroups.put(alphabetizedWord, currentEntries);
+          }
+          currentEntries.add(thisWord);
+      }//for
+
+//      for ( List<String> currentEntries : anagramGroups.values() ) {
+//          System.out.println("group: " + currentEntries.get(0) + " - (" + currentEntries.size() + ")" );
+//      }
+
+   } //groupAnagrams
 
 
    private static void printResultList(List<String> printList, String title) {
