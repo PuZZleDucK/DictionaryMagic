@@ -138,7 +138,9 @@ public class DMagic {
               currentEntries = new ArrayList<String>();
               anagramGroups.put(alphabetizedWord, currentEntries);
           }
-          currentEntries.add(thisWord);
+          if( ! currentEntries.contains(thisWord) ) {
+              currentEntries.add(thisWord);
+          }
       }//for
 
 //      for ( List<String> currentEntries : anagramGroups.values() ) {
