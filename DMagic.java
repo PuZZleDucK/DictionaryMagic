@@ -88,9 +88,9 @@ public class DMagic {
 //      System.out.println("Prep custom list...");
       List<String> notShortList = trimShortWords( linkedList, 2 );
       notShortList = dropFromList( notShortList, 90 );
-      Map<String, String> anagramPairs = new HashMap<String, String>();
-      findAnagramPairs(notShortList, anagramPairs);
-      printPairResultList(anagramPairs, "Angram Pairs (over sub-dictionary):");
+      Map<String, String> palendromePairs = new HashMap<String, String>();
+      findPalendromePairs(notShortList, palendromePairs);
+      printPairResultList(palendromePairs, "Palendromic Pairs (over sub-dictionary):");
 
       System.out.println("The magic is over :(");
    } //main
@@ -119,7 +119,7 @@ public class DMagic {
    } //notshort
 
 
-   private static void findAnagramPairs(List<String> wordList, Map<String, String> anagramPairs ) {
+   private static void findPalendromePairs(List<String> wordList, Map<String, String> anagramPairs ) {
       for ( String thisWord : wordList ) {
           String reverseWord = new StringBuffer(thisWord).reverse().toString();
           for ( String otherWord : wordList ) {
