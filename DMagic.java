@@ -87,7 +87,7 @@ public class DMagic {
       //anagram pairs
 //      System.out.println("Prep custom list...");
       List<String> notShortList = trimShortWords( linkedList, 2 );
-      notShortList = dropFromList( notShortList, 90 );
+      notShortList = dropFromList( notShortList, 95 );
       Map<String, String> palendromePairs = new HashMap<String, String>();
       findPalendromePairs(notShortList, palendromePairs);
       printPairResultList(palendromePairs, "Palendromic Pairs (over sub-dictionary):");
