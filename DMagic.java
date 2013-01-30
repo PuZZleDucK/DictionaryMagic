@@ -135,12 +135,12 @@ public class DMagic {
 
    private static void findAnagramPairs(List<String> wordList, Map<String, String> anagramPairs ) {
       for ( String thisWord : wordList ) {
-         if( thisWord.length() > 5 ) {
+         if( thisWord.length() > 6 ) {
              String reverseWord = new StringBuffer(thisWord).reverse().toString();
              for ( String otherWord : wordList ) {
 //               System.out.println("Angram candidates: " + thisWord.toString() + "->"
 //                     + reverseWord + " and " + otherWord);
-                if( reverseWord.equals(otherWord) ) {
+                if( otherWord.length() > 6 && reverseWord.equals(otherWord) ) {
                //System.out.println("Angram pair found: " + thisWord.toString() + " and " + otherWord);
                    anagramPairs.put(thisWord, otherWord);
                 }
@@ -191,8 +191,13 @@ public class DMagic {
       }
       System.out.print("\n");
 //      System.out.println(" ================================================= ");
+      int paddingCount = longestLine(printList.keySet()).length();
       for( String s : printList.keySet() ) {
-         System.out.println(" -"+s+"<=>"+printList.get(s));
+         int padding = (paddingCount - s.length())/2;
+         for (int i = 0; i < padding; i++) {
+            System.out.print(" ");
+         }
+         System.out.println( s+"<=>"+printList.get(s) );
       }
    }
 
@@ -237,7 +242,7 @@ public class DMagic {
       return returnList;
    } //palendrome
 
-   private static String longestLine(List<String> wordList) {
+   private static String longestLine(Collection<String> wordList) {
       Iterator iter = wordList.iterator();
 //      ArrayList<String> returnList = new ArrayList<String>();
       String longestLine = "";
@@ -250,8 +255,23 @@ public class DMagic {
          }
       }
       return longestLine;
-   } //longest palen
-
+   } //longest len
+/*
+   private static String longestLine(Set<String> wordList) {
+      Iterator iter = wordList.iterator();
+//      ArrayList<String> returnList = new ArrayList<String>();
+      String longestLine = "";
+      int lineLength = 0;
+      while(iter.hasNext()) {
+         String thisText = iter.next().toString();
+         if(thisText.length() > lineLength) {
+            lineLength = thisText.length();
+            longestLine = thisText;
+         }
+      }
+      return longestLine;
+   } //longest set
+*/
 
    private static boolean isPalendrome( String inputString ) {
       //inputString
