@@ -85,24 +85,48 @@ public class DMagic {
       }
 
       //anagram pairs
-//      Map<String, String> anagramPairs = new HashMap<String, String>();
-//      findAnagramPairs(linkedList, anagramPairs);
-//      printPairResultList(anagramPairs, "Angram Pairs:");
+//      System.out.println("Prep custom list...");
+      List<String> notShortList = trimShortWords( linkedList, 2 );
+      notShortList = dropFromList( notShortList, 90 );
+      Map<String, String> anagramPairs = new HashMap<String, String>();
+      findAnagramPairs(notShortList, anagramPairs);
+      printPairResultList(anagramPairs, "Angram Pairs (over sub-dictionary):");
 
       System.out.println("The magic is over :(");
    } //main
 
 
+   private static List<String> dropFromList ( List<String> inputList, int dropPercent ) {
+       ArrayList<String> returnList = new ArrayList<String>();
+       int i = 0;
+       for ( String thisWord : inputList ) {
+           if( i > dropPercent ) {
+               returnList.add(thisWord);
+           }
+           i = (i+1)%100;
+       }
+       return returnList;
+   } //notshort
+
+   private static List<String> trimShortWords ( List<String> inputList, int minLength ) {
+       ArrayList<String> returnList = new ArrayList<String>();
+       for ( String thisWord : inputList ) {
+           if( thisWord.length() > minLength ) {
+               returnList.add(thisWord);
+           } 
+       }
+       return returnList;
+   } //notshort
+
+
    private static void findAnagramPairs(List<String> wordList, Map<String, String> anagramPairs ) {
       for ( String thisWord : wordList ) {
-         if( thisWord.length() > 6 ) {
-             String reverseWord = new StringBuffer(thisWord).reverse().toString();
-             for ( String otherWord : wordList ) {
-                if( otherWord.length() > 6 && reverseWord.equals(otherWord) ) {
-                   anagramPairs.put(thisWord, otherWord);
-                }
-             }//for other word
-         } //if length check
+          String reverseWord = new StringBuffer(thisWord).reverse().toString();
+          for ( String otherWord : wordList ) {
+             if( reverseWord.equals(otherWord) ) {
+                anagramPairs.put(thisWord, otherWord);
+             }
+          }//for other word
       } //for this word
    } //findAnagramPairs
 
@@ -145,7 +169,7 @@ public class DMagic {
       System.out.print("\n");
       int paddingCount = longestLine(printList.keySet()).length();
       for( String s : printList.keySet() ) {
-         int padding = (paddingCount - s.length())/2;
+         int padding = paddingCount - s.length();
          for (int i = -2; i < padding; i++) {
             System.out.print(" ");
          }
