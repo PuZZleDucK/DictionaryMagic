@@ -194,7 +194,7 @@ public class DMagic {
       int paddingCount = longestLine(printList.keySet()).length();
       for( String s : printList.keySet() ) {
          int padding = (paddingCount - s.length())/2;
-         for (int i = 0; i < padding; i++) {
+         for (int i = -2; i < padding; i++) {
             System.out.print(" ");
          }
          System.out.println( s+"<=>"+printList.get(s) );
