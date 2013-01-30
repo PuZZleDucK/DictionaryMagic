@@ -47,52 +47,19 @@ public class DMagic {
       resultList = palendromeSearch(wordHashSet);
       printResultList(resultList, "Palendrome Search using Hash Set");
 
-//         Iterator iter = wordHashSet.iterator();
-//         System.out.println("First 10 (of "+ wordHashSet.size()
-//            +") hash set entries:");
-//         for ( int i = 0; i < 10; i++ ) {
-//           System.out.println(i+": "+iter.next());
-//         }
-
       resultList = firstTenSearch(wordTreeSet);
       printResultList(resultList, "First Ten Search using Tree Set");
       resultList = lastTenSearch(wordTreeSet);
       printResultList(resultList, "Last Ten Search using Tree Set");
 
-
-//         Iterator iter = wordTreeSet.iterator();
-//         System.out.println("First and last 10 (of "+ wordTreeSet.size()
-//            +") tree set entries:");
-//         System.out.println(" :  pollfirst\t:  polllast");
-//         for ( int i = 0; i < 10; i++ ) {
-//           System.out.println(i+": " 
-//                + wordTreeSet.pollFirst()
- //              + "    \t: " +  );
-//         }
-
       resultList = firstTenSearch(wordLHSet);
       printResultList(resultList, "First Ten Search using L-H Set");
-
-//         Iterator iter = wordLHSet.iterator();
-//         System.out.println("First 10 linked-hash entries:");
-//         for ( int i = 0; i < 10; i++ ) {
-//           System.out.println(i+": "+iter.next());
-//         }
 
       resultList = firstTenSearch(arrayList);
       printResultList(resultList, "First Ten Search using Array List");
       resultList = randomTenSearch(arrayList, rng);
       printResultList(resultList, "Random Ten Search using Array List");
 
-
-//         Iterator iter = arrayList.iterator();
-//         System.out.println("First and random 10 (of "
-//                + arrayList.size() + ") array list entries:");
-//         System.out.println("  first  \t random");
-//         for ( int i = 0; i < 10; i++ ) {
-//           System.out.println(i+": "+iter.next() +" \t\t: "
-//                + arrayList.get(rng.nextInt(arrayList.size())));
-//         }
       resultList = firstTenSearch(linkedList);
       printResultList(resultList, "First Ten Search using Linked List");
       System.out.println(" Longest Word: " + longestLine(resultList));
@@ -101,12 +68,6 @@ public class DMagic {
       resultList = palendromeSearch(linkedList);
 //      printResultList(resultList, "Palendrome Search using Linked List");
       System.out.println(" Longest Palendrome: " + longestLine(resultList));
-
-//         Iterator iter = linkedList.iterator();
-//         System.out.println("First 10 linked list entries:");
-//         for ( int i = 0; i < 10; i++ ) {
-//           System.out.println(i+": "+iter.next());
-//         }
 
       //anagram groups
       Map<String, List<String>> anagramMap = new HashMap<String, List<String>>();
@@ -124,10 +85,9 @@ public class DMagic {
       }
 
       //anagram pairs
-      Map<String, String> anagramPairs = new HashMap<String, String>();
-      findAnagramPairs(linkedList, anagramPairs);
-      printPairResultList(anagramPairs, "Angram Pairs:");
-
+//      Map<String, String> anagramPairs = new HashMap<String, String>();
+//      findAnagramPairs(linkedList, anagramPairs);
+//      printPairResultList(anagramPairs, "Angram Pairs:");
 
       System.out.println("The magic is over :(");
    } //main
@@ -138,17 +98,12 @@ public class DMagic {
          if( thisWord.length() > 6 ) {
              String reverseWord = new StringBuffer(thisWord).reverse().toString();
              for ( String otherWord : wordList ) {
-//               System.out.println("Angram candidates: " + thisWord.toString() + "->"
-//                     + reverseWord + " and " + otherWord);
                 if( otherWord.length() > 6 && reverseWord.equals(otherWord) ) {
-               //System.out.println("Angram pair found: " + thisWord.toString() + " and " + otherWord);
                    anagramPairs.put(thisWord, otherWord);
                 }
              }//for other word
          } //if length check
-         //System.out.print(".");
       } //for this word
-
    } //findAnagramPairs
 
 
@@ -157,7 +112,6 @@ public class DMagic {
           char[] chars = thisWord.toCharArray();
           Arrays.sort ( chars );
           String alphabetizedWord = new String ( chars );
-//          System.out.println("a: " + thisWord + "   sorted: " + output + "");
           List<String> currentEntries = anagramGroups.get ( alphabetizedWord );
           if ( currentEntries == null ) {
               currentEntries = new ArrayList<String>();
@@ -177,7 +131,6 @@ public class DMagic {
           System.out.print("=");
       }
       System.out.print("\n");
-//      System.out.println(" ================================================= ");
       for( String s : printList ) {
          System.out.println("-"+s);
       }
@@ -190,7 +143,6 @@ public class DMagic {
           System.out.print("=");
       }
       System.out.print("\n");
-//      System.out.println(" ================================================= ");
       int paddingCount = longestLine(printList.keySet()).length();
       for( String s : printList.keySet() ) {
          int padding = (paddingCount - s.length())/2;
@@ -203,7 +155,6 @@ public class DMagic {
 
 
    private static List<String> lastTenSearch(TreeSet<String> wordHashSet) {
-      //Iterator iter = wordHashSet.iterator();
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
          returnList.add(wordHashSet.pollLast());
@@ -221,14 +172,12 @@ public class DMagic {
    } //firstTenSearch
 
    private static List<String> randomTenSearch(List<String> wordHashSet, Random rng) {
-//      Iterator iter = wordHashSet.iterator();
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
-         //iter.next().toString());
          returnList.add(wordHashSet.get(rng.nextInt(wordHashSet.size())));
       }
       return returnList;
-   } //firstTenSearch
+   } //randomTenSearch
 
    private static List<String> palendromeSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
@@ -244,7 +193,6 @@ public class DMagic {
 
    private static String longestLine(Collection<String> wordList) {
       Iterator iter = wordList.iterator();
-//      ArrayList<String> returnList = new ArrayList<String>();
       String longestLine = "";
       int lineLength = 0;
       while(iter.hasNext()) {
@@ -256,42 +204,20 @@ public class DMagic {
       }
       return longestLine;
    } //longest len
-/*
-   private static String longestLine(Set<String> wordList) {
-      Iterator iter = wordList.iterator();
-//      ArrayList<String> returnList = new ArrayList<String>();
-      String longestLine = "";
-      int lineLength = 0;
-      while(iter.hasNext()) {
-         String thisText = iter.next().toString();
-         if(thisText.length() > lineLength) {
-            lineLength = thisText.length();
-            longestLine = thisText;
-         }
-      }
-      return longestLine;
-   } //longest set
-*/
+
 
    private static boolean isPalendrome( String inputString ) {
-      //inputString
       boolean returnValue = false;
       int splitPoint = inputString.length()/2;
       int splitOverflow = inputString.length()%2;
-//      System.out.println(inputString +": " + inputString.length()
-//            +" split: " + splitPoint);
       if(splitPoint > 0) {
          String firstHalf;
          String secondHalf;
          firstHalf = inputString.substring(0,splitPoint);
          secondHalf = inputString.substring(splitPoint+splitOverflow, inputString.length());
-//         System.out.println(inputString +": " + firstHalf
-//            +" / " + secondHalf);
          returnValue = true;
          while (splitPoint > 0) {
             splitPoint--;
-//            System.out.println("char: " + firstHalf.charAt(splitPoint) +
-//                            " : " + secondHalf.charAt(secondHalf.length()-(splitPoint+1))  );
             if( !(firstHalf.charAt(splitPoint) == secondHalf.charAt(secondHalf.length()-(splitPoint+1))) ) {
                returnValue = false;
             }
@@ -305,26 +231,17 @@ public class DMagic {
       int wordCount = 0;
       try {
          Scanner wordScanner = new Scanner(wordFile);
-//         wordHashSet.add("aaaaaaaaaxxzxzzxzxxzxicle");
-//         int wordCount = 0;
          while(wordScanner.hasNext()) {
             String inputWord = wordScanner.next().toLowerCase();
             if( wordHashSet.add(inputWord) ) {
-              // System.out.print("  "+wordCount+": " + inputWord);
                wordCount++;
             } else {
 //               System.out.print("  DUPE: " + inputWord);
             }
-            //wordTreeSet.add(inputWord);
-            //wordLHSet.add(inputWord);
-            //arrayList.add(inputWord);
-            //linkedList.add(inputWord);
          } //while
-         //System.out.println("");
       } catch (Exception e) {
          System.out.println("Exception creating scanner: " + e);
       }
-
       return wordCount;
    } //readWordList
 
@@ -391,7 +308,6 @@ public class DMagic {
       }
       return wordCount;
    } //readWordList
-
 
 
 } //class
