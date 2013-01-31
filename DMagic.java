@@ -45,6 +45,7 @@ public class DMagic {
       resultList = firstTenSearch(wordHashSet);
       printResultList(resultList, "First Ten Search using Hash Set");
       resultList = palendromeSearch(wordHashSet);
+      resultList = trimShortWords( resultList, 5 );
       printResultList(resultList, "Palendrome Search using Hash Set");
 
       resultList = firstTenSearch(wordTreeSet);
@@ -108,7 +109,7 @@ public class DMagic {
        return returnList;
    } //notshort
 
-   private static List<String> trimShortWords ( List<String> inputList, int minLength ) {
+   private static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
        ArrayList<String> returnList = new ArrayList<String>();
        for ( String thisWord : inputList ) {
            if( thisWord.length() > minLength ) {
