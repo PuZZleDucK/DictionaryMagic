@@ -22,8 +22,8 @@ import java.util.Arrays;
 public class DMagic {
 
    public static void main(String[] args) {
-      File wordFile = new File("en-common.wl");
-//      File wordFile = new File("dictionary.txt");
+      File wordFileA = new File("en-common.wl");
+      File wordFileB = new File("dictionary.txt");
       Random rng = new Random();
       rng.setSeed(666);
       List<String> resultList = new ArrayList<String>();
@@ -35,11 +35,11 @@ public class DMagic {
       List<String> linkedList = new LinkedList<String>();
 
       int wordCount = 0;
-      wordCount = readWordList(wordFile, wordHashSet);
-      wordCount = readWordList(wordFile, wordTreeSet);
-      wordCount = readWordList(wordFile, wordLHSet);
-      wordCount = readWordList(wordFile, arrayList);
-      wordCount = readWordList(wordFile, linkedList);
+      wordCount = readWordList(wordFileA, wordHashSet);
+      wordCount = readWordList(wordFileA, wordTreeSet);
+      wordCount = readWordList(wordFileA, wordLHSet);
+      wordCount = readWordList(wordFileA, arrayList);
+      wordCount = readWordList(wordFileA, linkedList);
 
 
       resultList = firstTenSearch(wordHashSet);
@@ -67,7 +67,8 @@ public class DMagic {
       resultList = randomTenSearch(linkedList, rng);
       printResultList(resultList, "Random Ten Search using Linked List");
       resultList = palendromeSearch(linkedList);
-//      printResultList(resultList, "Palendrome Search using Linked List");
+      resultList = trimShortWords( resultList, 5 );
+      printResultList(resultList, "Palendrome Search using Linked List");
       System.out.println(" Longest Palendrome: " + longestLine(resultList));
 
       //anagram groups
@@ -85,13 +86,11 @@ public class DMagic {
           }
       }
 
-      //anagram pairs
-//      System.out.println("Prep custom list...");
       List<String> notShortList = trimShortWords( linkedList, 2 );
       notShortList = dropFromList( notShortList, 95 );
       Map<String, String> palendromePairs = new HashMap<String, String>();
       findPalendromePairs(notShortList, palendromePairs);
-      printPairResultList(palendromePairs, "Palendromic Pairs (over sub-dictionary):");
+      printPairResultList(palendromePairs, "Palendromic Pairs (over 5% sub-dictionary):");
 
       System.out.println("The magic is over :(");
    } //main
