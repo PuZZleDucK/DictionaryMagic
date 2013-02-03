@@ -21,11 +21,39 @@ import java.util.Arrays;
 
 public class DMagic {
 
+
    public static void main(String[] args) {
       File wordFileA = new File("en-common.wl");
       File wordFileB = new File("dictionary.txt");
       Random rng = new Random();
       rng.setSeed(666);
+
+//non-symetric letters:
+//    ersfgjklzcn
+//pairs:
+//    qpdb
+
+//possibly symetric letters:    wtyuioahxvm
+   List<String> symetricCharacters = new ArrayList<String>();
+   symetricCharacters.add( "w" );
+   symetricCharacters.add( "t" );
+   symetricCharacters.add( "y" );
+   symetricCharacters.add( "u" );
+   symetricCharacters.add( "i" );
+   symetricCharacters.add( "o" );
+   symetricCharacters.add( "a" );
+   symetricCharacters.add( "h" );
+   symetricCharacters.add( "x" );
+   symetricCharacters.add( "v" );
+   symetricCharacters.add( "m" );
+   Map<String, String> symetricPairs = new HashMap<String, String>();
+   symetricPairs.put("p","q");
+   symetricPairs.put("q","p");
+   symetricPairs.put("b","d");
+   symetricPairs.put("d","b");
+
+
+
       List<String> resultList = new ArrayList<String>();
       
       HashSet<String> wordHashSet = new HashSet<String>();
