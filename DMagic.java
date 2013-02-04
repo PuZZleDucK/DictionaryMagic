@@ -20,7 +20,8 @@ import java.util.Arrays;
 
 
 public class DMagic {
-
+   public static List<String> symetricCharacters = new ArrayList<String>();
+   public static Map<String, String> symetricPairs = new HashMap<String, String>();
 
    public static void main(String[] args) {
       File wordFileA = new File("en-common.wl");
@@ -28,29 +29,23 @@ public class DMagic {
       Random rng = new Random();
       rng.setSeed(666);
 
-//non-symetric letters:
-//    ersfgjklzcn
-//pairs:
-//    qpdb
-
-//possibly symetric letters:    wtyuioahxvm
-   List<String> symetricCharacters = new ArrayList<String>();
-   symetricCharacters.add( "w" );
-   symetricCharacters.add( "t" );
-   symetricCharacters.add( "y" );
-   symetricCharacters.add( "u" );
-   symetricCharacters.add( "i" );
-   symetricCharacters.add( "o" );
-   symetricCharacters.add( "a" );
-   symetricCharacters.add( "h" );
-   symetricCharacters.add( "x" );
-   symetricCharacters.add( "v" );
-   symetricCharacters.add( "m" );
-   Map<String, String> symetricPairs = new HashMap<String, String>();
-   symetricPairs.put("p","q");
-   symetricPairs.put("q","p");
-   symetricPairs.put("b","d");
-   symetricPairs.put("d","b");
+//non-symetric letters: ersfgjklzcn
+//possibly symetric letters: wtyuioahxvm       pairs: qpdb
+      symetricCharacters.add( "w" );
+      symetricCharacters.add( "t" );
+      symetricCharacters.add( "y" );
+      symetricCharacters.add( "u" );
+      symetricCharacters.add( "i" );
+      symetricCharacters.add( "o" );
+      symetricCharacters.add( "a" );
+      symetricCharacters.add( "h" );
+      symetricCharacters.add( "x" );
+      symetricCharacters.add( "v" );
+      symetricCharacters.add( "m" );
+      symetricPairs.put("p","q");
+      symetricPairs.put("q","p");
+      symetricPairs.put("b","d");
+      symetricPairs.put("d","b");
 
 
 
@@ -99,6 +94,8 @@ public class DMagic {
       printResultList(resultList, "Palendrome Search using Linked List");
       System.out.println(" Longest Palendrome: " + longestLine(resultList));
 
+
+
       //anagram groups
       Map<String, List<String>> anagramMap = new HashMap<String, List<String>>();
       groupAnagrams(linkedList, anagramMap);
@@ -115,10 +112,21 @@ public class DMagic {
       }
 
       List<String> notShortList = trimShortWords( linkedList, 2 );
-      notShortList = dropFromList( notShortList, 95 );
+      notShortList = dropFromList( notShortList, 90 );
       Map<String, String> palendromePairs = new HashMap<String, String>();
       findPalendromePairs(notShortList, palendromePairs);
       printPairResultList(palendromePairs, "Palendromic Pairs (over 5% sub-dictionary):");
+      palendromePairs = new HashMap<String, String>();
+      findSymetricPairs(notShortList, palendromePairs);
+      printPairResultList(palendromePairs, "Symetric palendromic Pairs (sub-dictionary):");
+
+//      System.out.println("symetricCharacters");
+//      for( String s : symetricCharacters ) {
+//         System.out.println("- " + s);
+//      }
+//      System.out.println("is o in sym: " + symetricCharacters.contains("o") );
+//      System.out.println("is o in sym: " + symetricCharacters.contains("o".charAt(0)) );
+//      System.out.println("is o in sym: " + symetricCharacters.contains(Character.toString("o".charAt(0))) );
 
       System.out.println("The magic is over :(");
    } //main
@@ -154,6 +162,41 @@ public class DMagic {
              if( reverseWord.equals(otherWord) ) {
                 anagramPairs.put(thisWord, otherWord);
              }
+          }//for other word
+      } //for this word
+   } //findAnagramPairs
+
+   private static void findSymetricPairs(List<String> wordList, Map<String, String> symetricPairs ) {
+      for ( String thisWord : wordList ) {
+          String reverseWord = new StringBuffer(thisWord).reverse().toString();
+          for ( String otherWord : wordList ) {
+             //if( reverseWord.equals(otherWord) ) {
+             //   anagramPairs.put(thisWord, otherWord);
+             //}
+             if( thisWord.length() == otherWord.length() ) {
+                boolean isSymetricPair = true;
+                for( int i = 0; isSymetricPair && i < thisWord.length(); i++ ) {
+                    //System.out.print(" >" + i + "/" + thisWord.length());
+//                    if(thisWord.equals("otto")){System.out.println("i:"+i+"  char:"+ thisWord.charAt(i) +"  symetric:"+ symetricCharacters.contains( thisWord.charAt(i)));};
+                    if(symetricCharacters.contains( Character.toString(thisWord.charAt(i)) ) ) {
+                       if(thisWord.charAt(i) == otherWord.charAt(otherWord.length()-(i+1))) {
+                         //nop
+                       } else {
+                           isSymetricPair = false;
+                       }
+                    } else if ( symetricPairs.containsKey( Character.toString(thisWord.charAt(i)) ) ) {
+                       if( thisWord.charAt(i) == symetricPairs.get(otherWord.charAt(otherWord.length()-(i+1))).charAt(0) ) {
+                       } else {
+                           isSymetricPair = false;
+                       }
+                    } else {
+                        isSymetricPair = false;
+                    }
+                }
+                if (isSymetricPair) {
+                    symetricPairs.put(thisWord, otherWord);
+                }
+             }//if equal length
           }//for other word
       } //for this word
    } //findAnagramPairs
