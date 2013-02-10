@@ -58,11 +58,11 @@ public class DMagic {
       List<String> linkedList = new LinkedList<String>();
 
       int wordCount = 0;
-      wordCount = readWordList(wordFileA, wordHashSet);
-      wordCount = readWordList(wordFileA, wordTreeSet);
-      wordCount = readWordList(wordFileA, wordLHSet);
-      wordCount = readWordList(wordFileA, arrayList);
-      wordCount = readWordList(wordFileA, linkedList);
+      wordCount = readWordList(wordFileB, wordHashSet);
+      wordCount = readWordList(wordFileB, wordTreeSet);
+      wordCount = readWordList(wordFileB, wordLHSet);
+      wordCount = readWordList(wordFileB, arrayList);
+      wordCount = readWordList(wordFileB, linkedList);
 
 
       resultList = firstTenSearch(wordHashSet);
@@ -114,8 +114,8 @@ public class DMagic {
       List<String> notShortList = trimShortWords( linkedList, 2 );
       notShortList = dropFromList( notShortList, 90 );
       Map<String, String> palendromePairs = new HashMap<String, String>();
-      findPalendromePairs(notShortList, palendromePairs);
-      printPairResultList(palendromePairs, "Palendromic Pairs (over 5% sub-dictionary):");
+//      findPalendromePairs(notShortList, palendromePairs);
+//      printPairResultList(palendromePairs, "Palendromic Pairs (over 5% sub-dictionary):");
       palendromePairs = new HashMap<String, String>();
       findSymetricPairs(notShortList, palendromePairs);
       printPairResultList(palendromePairs, "Symetric palendromic Pairs (sub-dictionary):");
