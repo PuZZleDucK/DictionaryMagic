@@ -17,13 +17,20 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
-
+import java.lang.Runtime;
 
 public class DMagic {
    public static List<String> symetricCharacters = new ArrayList<String>();
    public static Map<String, String> symetricPairs = new HashMap<String, String>();
 
    public static void main(String[] args) {
+
+//      run javadoc:
+     // com.sun.tools.javadoc.Main.execute(new String[] {"-d", "docs", "-sourcepath", "/home/puzzleduck/java-docs", "p1", "p2"});
+      //Runtime r = new Runtime();
+      //r.exec("javadoc Dmagic");
+
+
       File wordFileA = new File("en-common.wl");
       File wordFileB = new File("dictionary.txt");
       Random rng = new Random();
