@@ -114,8 +114,8 @@ public class DMagic {
       List<String> notShortList = trimShortWords( linkedList, 2 );
       notShortList = dropFromList( notShortList, 90 );
       Map<String, String> palendromePairs = new HashMap<String, String>();
-//      findPalendromePairs(notShortList, palendromePairs);
-//      printPairResultList(palendromePairs, "Palendromic Pairs (over 5% sub-dictionary):");
+      findPalendromePairs(notShortList, palendromePairs);
+      printPairResultList(palendromePairs, "Palendromic Pairs (over 5% sub-dictionary):");
       palendromePairs = new HashMap<String, String>();
       findSymetricPairs(notShortList, palendromePairs);
       printPairResultList(palendromePairs, "Symetric palendromic Pairs (sub-dictionary):");
