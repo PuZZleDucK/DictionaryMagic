@@ -189,6 +189,14 @@ public class DMagic {
    } //notshort
 
 
+/** 
+  * findPalendromePairs will append to the supplied Map pairs of words
+  * from the origional list that form a pair of words which form a
+  * palendrome when concatenated together, for example "dog" and "god".
+  * 
+  * @param wordList     The origional list to create the Map with.
+  * @param anagramPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty.
+  */
    public static void findPalendromePairs(List<String> wordList, Map<String, String> anagramPairs ) {
       for ( String thisWord : wordList ) {
           String reverseWord = new StringBuffer(thisWord).reverse().toString();
@@ -200,6 +208,14 @@ public class DMagic {
       } //for this word
    } //findAnagramPairs
 
+/** 
+  * findSymetricPairs will append to the supplied Map pairs of words
+  * from the origional list that form a pair of words which form a visual
+  * palendrome when concatenated together, for example "bob" and "dod".
+  * 
+  * @param wordList     The origional list to create the Map with.
+  * @param anagramPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty.
+  */
    public static void findSymetricPairs(List<String> wordList, Map<String, String> symetricPairs ) {
       for ( String thisWord : wordList ) {
           String reverseWord = new StringBuffer(thisWord).reverse().toString();
@@ -236,6 +252,15 @@ public class DMagic {
    } //findAnagramPairs
 
 
+/** 
+  * groupAnagrams will append to the supplied Map groups of words from
+  * the origional list which form a group of angrams, the map is keyed 
+  * with the alphabetical ordering of the letters. eg. "cat", and "tac"
+  * would both be placed in the same group and keyed with "act".
+  * 
+  * @param wordList     The origional list to create the Map and groups with.
+  * @param anagramPairs This is the Map into which the found groups will be added, it must be initialized, but does not have to be empty.
+  */
    public static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
       for ( String thisWord : wordList ) {
           char[] chars = thisWord.toCharArray();
@@ -253,6 +278,13 @@ public class DMagic {
    } //groupAnagrams
 
 
+/** 
+  * printResultList is a convinience method to simply print the  
+  * supplied list with a given heading.
+  * 
+  * @param printList The list to be formatted and displayed.
+  * @param title     The title to be included in the output.
+  */
    public static void printResultList(List<String> printList, String title) {
       System.out.println(" == "+title+ " == ");
       System.out.print(" ");
@@ -265,6 +297,13 @@ public class DMagic {
       }
    }
 
+/** 
+  * printResultList is a convinience method to simply print the  
+  * supplied map with a given heading.
+  * 
+  * @param printList The map to be formatted and displayed.
+  * @param title     The title to be included in the output.
+  */
    public static void printPairResultList(Map<String, String> printList, String title) {
       System.out.println(" == "+title+ " == ");
       System.out.print(" ");
@@ -283,6 +322,12 @@ public class DMagic {
    }
 
 
+/** 
+  * lastTenSearch creates a List of the final 10 elements in a tree set.
+  * 
+  * @param wordHashSet The TreeSet to be searched.
+  * @return            A List of the final 10 elements.
+  */
    public static List<String> lastTenSearch(TreeSet<String> wordHashSet) {
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
@@ -291,6 +336,12 @@ public class DMagic {
       return returnList;
    } //lastTenSearch
 
+/** 
+  * firstTenSearch creates a List of the first 10 elements in a Collection.
+  * 
+  * @param wordHashSet The Collection to be searched.
+  * @return            A List of the first 10 elements.
+  */
    public static List<String> firstTenSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
       ArrayList<String> returnList = new ArrayList<String>();
@@ -300,6 +351,13 @@ public class DMagic {
       return returnList;
    } //firstTenSearch
 
+/** 
+  * randomTenSearch creates a List of 10 random elements from a List.
+  * 
+  * @param wordHashSet The List to be searched.
+  * @param rng         The random number generator to use.
+  * @return            A List of 10 random elements.
+  */
    public static List<String> randomTenSearch(List<String> wordHashSet, Random rng) {
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
