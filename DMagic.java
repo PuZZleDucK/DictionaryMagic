@@ -366,6 +366,13 @@ public class DMagic {
       return returnList;
    } //randomTenSearch
 
+/** 
+  * palendromeSearch will create a new Linked List of words from the
+  * origional Collection that are palendromes.
+  * 
+  * @param wordHashSet  The origional Collection to create the List with.
+  * @return             A list of the palendromes from the origional Collection.
+  */
    public static List<String> palendromeSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
       ArrayList<String> returnList = new ArrayList<String>();
@@ -378,6 +385,13 @@ public class DMagic {
       return returnList;
    } //palendrome
 
+/** 
+  * longestLine will search a Collection of Strings and return the longest
+  * String it finds.
+  * 
+  * @param wordList The origional Collection to search.
+  * @return         The longest String found in the Collection.
+  */
    public static String longestLine(Collection<String> wordList) {
       Iterator iter = wordList.iterator();
       String longestLine = "";
@@ -393,6 +407,13 @@ public class DMagic {
    } //longest len
 
 
+/** 
+  * isPalendrome will check if the input String is a palendrome and returns 
+  * true if it is and false otherwise.
+  * 
+  * @param inputString The String to check.
+  * @return            True if the input is a palendrome and false otherwise.
+  */
    public static boolean isPalendrome( String inputString ) {
       boolean returnValue = false;
       int splitPoint = inputString.length()/2;
@@ -414,6 +435,15 @@ public class DMagic {
    }
 
 
+/** 
+  * readWordList takes a file and a HashSet as paramaters and reads each word  
+  * from the file and inserts it into the HashSet.
+  * <p>
+  * Duplicate words are not inserted, only lower case words are inserted.
+  * @param wordFile    The file to read the word list from.
+  * @param wordHashSet The HashSet to write words into.
+  * @return            Returns a count of how many words were entered.
+  */
    public static int readWordList(File wordFile, HashSet<String> wordHashSet) {
       int wordCount = 0;
       try {
@@ -432,6 +462,15 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
+/** 
+  * readWordList takes a file and a TreeSet as paramaters and reads each word  
+  * from the file and inserts it into the TreeSet.
+  * <p>
+  * Duplicate words are not inserted, only lower case words are inserted.
+  * @param wordFile    The file to read the word list from.
+  * @param wordHashSet The TreeSet to write words into.
+  * @return            Returns a count of how many words were entered.
+  */
    public static int readWordList(File wordFile, TreeSet<String> wordHashSet) {
       int wordCount = 0;
       try {
@@ -448,6 +487,15 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
+/** 
+  * readWordList takes a file and a LinkedHashSet as paramaters and reads each word  
+  * from the file and inserts it into the LinkedHashSet.
+  * <p>
+  * Duplicate words are not inserted, only lower case words are inserted.
+  * @param wordFile    The file to read the word list from.
+  * @param wordHashSet The LinkedHashSet to write words into.
+  * @return            Returns a count of how many words were entered.
+  */
    public static int readWordList(File wordFile, LinkedHashSet<String> wordHashSet) {
       int wordCount = 0;
       try {
@@ -464,6 +512,15 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
+/** 
+  * readWordList takes a file and a List as paramaters and reads each word  
+  * from the file and inserts it into the List.
+  * <p>
+  * Duplicate words are not inserted, only lower case words are inserted.
+  * @param wordFile    The file to read the word list from.
+  * @param wordHashSet The List to write words into.
+  * @return            Returns a count of how many words were entered.
+  */
    public static int readWordList(File wordFile, List<String> wordHashSet) {
       int wordCount = 0;
       try {
@@ -480,6 +537,15 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
+/** 
+  * readWordList takes a file and a LinkedList as paramaters and reads each word  
+  * from the file and inserts it into the LinkedList.
+  * <p>
+  * Duplicate words are not inserted, only lower case words are inserted.
+  * @param wordFile    The file to read the word list from.
+  * @param wordHashSet The LinkedList to write words into.
+  * @return            Returns a count of how many words were entered.
+  */
    public static int readWordList(File wordFile, LinkedList<String> wordHashSet) {
       int wordCount = 0;
       try {
