@@ -21,14 +21,14 @@ import java.util.Arrays;
 import java.lang.Runtime;
 
 /** 
-  * Dictionary Macic (DMagic) is a set of utilities for manipulating a
+  * Dictionary Macic (<code>DMagic</code>) is a set of utilities for manipulating a
   * dictionary list of words and performing search and sort operations
   * on them.
   * <p>
   * DMagic can also handle the loading of dictionary lists to and from
   * various file formats.
   * 
-  * @see Collections, File
+  * @see Collections File
   */
 public class DMagic {
    public static List<String> symetricCharacters = new ArrayList<String>();
@@ -151,12 +151,13 @@ public class DMagic {
 
 
 /** 
-  * dropFromList will create a new list with only (100-propPercent) out
-  * of every 100 words included in the list.
+  * dropFromList will create a new <code>List</code> with only (100-propPercent) out
+  * of every 100 words included in the <code>List</code>.
   * 
   * @param inputList   The origional list to create the sub-list with.
   * @param dropPercent The number out of 100 of items to not include in the new sub-list.
   * @return            A sub-list containing (100-dropPercent)% of the inputList
+  * @see               List String
   */
    public static List<String> dropFromList ( List<String> inputList, int dropPercent ) {
        ArrayList<String> returnList = new ArrayList<String>();
@@ -171,12 +172,13 @@ public class DMagic {
    } //notshort
 
 /** 
-  * trimShortWords will create a new list with only the words from the
-  * origional list that have a length of at least minLength.
+  * trimShortWords will create a new <code>List</code> with only the words from the
+  * origional <code>Collection</code> that have a length of at least minLength.
   * 
   * @param inputList The origional list to create the sub-list with.
   * @param minLength The minimum length of a string to be included in the new sub-list.
   * @return          A sub-list containing Strings from inputList of minLength length or longer.
+  * @see             List Collection String
   */
    public static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
        ArrayList<String> returnList = new ArrayList<String>();
@@ -190,8 +192,8 @@ public class DMagic {
 
 
 /** 
-  * findPalendromePairs will append to the supplied Map pairs of words
-  * from the origional list that form a pair of words which form a
+  * findPalendromePairs will append to the supplied <code>Map</code> pairs of words
+  * from the origional <code>List</code> that form a pair of words which form a
   * palendrome when concatenated together, for example "dog" and "god".
   * 
   * @param wordList     The origional list to create the Map with.
@@ -209,12 +211,12 @@ public class DMagic {
    } //findAnagramPairs
 
 /** 
-  * findSymetricPairs will append to the supplied Map pairs of words
-  * from the origional list that form a pair of words which form a visual
+  * findSymetricPairs will append to the supplied <code>Map</code> pairs of words
+  * from the origional <code>List</code> that form a pair of words which form a visual
   * palendrome when concatenated together, for example "bob" and "dod".
   * 
-  * @param wordList     The origional list to create the Map with.
-  * @param anagramPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty.
+  * @param wordList      The origional list to create the Map with.
+  * @param symetricPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty.
   */
    public static void findSymetricPairs(List<String> wordList, Map<String, String> symetricPairs ) {
       for ( String thisWord : wordList ) {
@@ -253,13 +255,13 @@ public class DMagic {
 
 
 /** 
-  * groupAnagrams will append to the supplied Map groups of words from
-  * the origional list which form a group of angrams, the map is keyed 
+  * groupAnagrams will append to the supplied <code>Map<code> groups of words from
+  * the origional <code>List</code> which form a group of angrams, the <code>Map</code> is keyed 
   * with the alphabetical ordering of the letters. eg. "cat", and "tac"
   * would both be placed in the same group and keyed with "act".
   * 
-  * @param wordList     The origional list to create the Map and groups with.
-  * @param anagramPairs This is the Map into which the found groups will be added, it must be initialized, but does not have to be empty.
+  * @param wordList      The origional list to create the Map and groups with.
+  * @param anagramGroups This is the Map into which the found groups will be added, it must be initialized, but does not have to be empty.
   */
    public static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
       for ( String thisWord : wordList ) {
@@ -280,7 +282,7 @@ public class DMagic {
 
 /** 
   * printResultList is a convinience method to simply print the  
-  * supplied list with a given heading.
+  * supplied <code>List</code> with a given heading.
   * 
   * @param printList The list to be formatted and displayed.
   * @param title     The title to be included in the output.
@@ -299,7 +301,7 @@ public class DMagic {
 
 /** 
   * printResultList is a convinience method to simply print the  
-  * supplied map with a given heading.
+  * supplied <code>Map</code> with a given heading.
   * 
   * @param printList The map to be formatted and displayed.
   * @param title     The title to be included in the output.
@@ -323,7 +325,7 @@ public class DMagic {
 
 
 /** 
-  * lastTenSearch creates a List of the final 10 elements in a tree set.
+  * lastTenSearch creates a <code>List</code> of the final 10 elements in a <code>TreeSet</code>.
   * 
   * @param wordHashSet The TreeSet to be searched.
   * @return            A List of the final 10 elements.
@@ -337,7 +339,7 @@ public class DMagic {
    } //lastTenSearch
 
 /** 
-  * firstTenSearch creates a List of the first 10 elements in a Collection.
+  * firstTenSearch creates a <code>List</code> of the first 10 elements in a <code>Collection</code>.
   * 
   * @param wordHashSet The Collection to be searched.
   * @return            A List of the first 10 elements.
@@ -352,7 +354,7 @@ public class DMagic {
    } //firstTenSearch
 
 /** 
-  * randomTenSearch creates a List of 10 random elements from a List.
+  * randomTenSearch creates a <code>List</code> of 10 random elements from a <code>List</code>.
   * 
   * @param wordHashSet The List to be searched.
   * @param rng         The random number generator to use.
@@ -367,8 +369,8 @@ public class DMagic {
    } //randomTenSearch
 
 /** 
-  * palendromeSearch will create a new Linked List of words from the
-  * origional Collection that are palendromes.
+  * palendromeSearch will create a new <code>List</code> of words from the
+  * origional <code>Collection</code> that are palendromes.
   * 
   * @param wordHashSet  The origional Collection to create the List with.
   * @return             A list of the palendromes from the origional Collection.
@@ -386,8 +388,8 @@ public class DMagic {
    } //palendrome
 
 /** 
-  * longestLine will search a Collection of Strings and return the longest
-  * String it finds.
+  * longestLine will search a <code>Collection</code> of <code>Strings</code> and return the longest
+  * <code>String</code> it finds.
   * 
   * @param wordList The origional Collection to search.
   * @return         The longest String found in the Collection.
@@ -408,7 +410,7 @@ public class DMagic {
 
 
 /** 
-  * isPalendrome will check if the input String is a palendrome and returns 
+  * isPalendrome will check if the input <code>String</code> is a palendrome and returns 
   * true if it is and false otherwise.
   * 
   * @param inputString The String to check.
@@ -436,8 +438,8 @@ public class DMagic {
 
 
 /** 
-  * readWordList takes a file and a HashSet as paramaters and reads each word  
-  * from the file and inserts it into the HashSet.
+  * readWordList takes a <code>File</code> and a <code>HashSet</code> as paramaters and reads each word  
+  * from the <code>File</code> and inserts it into the <code>HashSet</code>.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
@@ -463,8 +465,8 @@ public class DMagic {
    } //readWordList
 
 /** 
-  * readWordList takes a file and a TreeSet as paramaters and reads each word  
-  * from the file and inserts it into the TreeSet.
+  * readWordList takes a <code>File</code> and a <code>TreeSet</code> as paramaters and reads each word  
+  * from the <code>File</code> and inserts it into the <code>TreeSet</code>.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
@@ -488,8 +490,8 @@ public class DMagic {
    } //readWordList
 
 /** 
-  * readWordList takes a file and a LinkedHashSet as paramaters and reads each word  
-  * from the file and inserts it into the LinkedHashSet.
+  * readWordList takes a <code>File</code> and a <code>LinkedHashSet</code> as paramaters and reads each word  
+  * from the <code>File</code> and inserts it into the LinkedHashSet.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
@@ -513,8 +515,8 @@ public class DMagic {
    } //readWordList
 
 /** 
-  * readWordList takes a file and a List as paramaters and reads each word  
-  * from the file and inserts it into the List.
+  * readWordList takes a <code>File</code> and a <code>List</code> as paramaters and reads each word  
+  * from the <code>File</code> and inserts it into the List.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
@@ -538,8 +540,8 @@ public class DMagic {
    } //readWordList
 
 /** 
-  * readWordList takes a file and a LinkedList as paramaters and reads each word  
-  * from the file and inserts it into the LinkedList.
+  * readWordList takes a <code>File</code> and a <code>LinkedList</code> as paramaters and reads each word  
+  * from the <code>File</code> and inserts it into the <code>LinkedList</code>.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
