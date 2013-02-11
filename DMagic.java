@@ -150,7 +150,15 @@ public class DMagic {
    } //main
 
 
-   private static List<String> dropFromList ( List<String> inputList, int dropPercent ) {
+/** 
+  * dropFromList will create a new list with only (100-propPercent) out
+  * of every 100 words included in the list.
+  * 
+  * @param inputList   The origional list to create the sub-list with.
+  * @param dropPercent The number out of 100 of items to not include in the new sub-list.
+  * @return            Returns a sub-list containing (100-propPercent)% of the inputList
+  */
+   public static List<String> dropFromList ( List<String> inputList, int dropPercent ) {
        ArrayList<String> returnList = new ArrayList<String>();
        int i = 0;
        for ( String thisWord : inputList ) {
@@ -162,7 +170,7 @@ public class DMagic {
        return returnList;
    } //notshort
 
-   private static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
+   public static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
        ArrayList<String> returnList = new ArrayList<String>();
        for ( String thisWord : inputList ) {
            if( thisWord.length() > minLength ) {
@@ -173,7 +181,7 @@ public class DMagic {
    } //notshort
 
 
-   private static void findPalendromePairs(List<String> wordList, Map<String, String> anagramPairs ) {
+   public static void findPalendromePairs(List<String> wordList, Map<String, String> anagramPairs ) {
       for ( String thisWord : wordList ) {
           String reverseWord = new StringBuffer(thisWord).reverse().toString();
           for ( String otherWord : wordList ) {
@@ -184,7 +192,7 @@ public class DMagic {
       } //for this word
    } //findAnagramPairs
 
-   private static void findSymetricPairs(List<String> wordList, Map<String, String> symetricPairs ) {
+   public static void findSymetricPairs(List<String> wordList, Map<String, String> symetricPairs ) {
       for ( String thisWord : wordList ) {
           String reverseWord = new StringBuffer(thisWord).reverse().toString();
           for ( String otherWord : wordList ) {
@@ -220,7 +228,7 @@ public class DMagic {
    } //findAnagramPairs
 
 
-   private static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
+   public static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
       for ( String thisWord : wordList ) {
           char[] chars = thisWord.toCharArray();
           Arrays.sort ( chars );
@@ -237,7 +245,7 @@ public class DMagic {
    } //groupAnagrams
 
 
-   private static void printResultList(List<String> printList, String title) {
+   public static void printResultList(List<String> printList, String title) {
       System.out.println(" == "+title+ " == ");
       System.out.print(" ");
       for (int i = 0; i < title.length()+6; i++) {
@@ -249,7 +257,7 @@ public class DMagic {
       }
    }
 
-   private static void printPairResultList(Map<String, String> printList, String title) {
+   public static void printPairResultList(Map<String, String> printList, String title) {
       System.out.println(" == "+title+ " == ");
       System.out.print(" ");
       for (int i = 0; i < title.length()+6; i++) {
@@ -267,7 +275,7 @@ public class DMagic {
    }
 
 
-   private static List<String> lastTenSearch(TreeSet<String> wordHashSet) {
+   public static List<String> lastTenSearch(TreeSet<String> wordHashSet) {
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
          returnList.add(wordHashSet.pollLast());
@@ -275,7 +283,7 @@ public class DMagic {
       return returnList;
    } //lastTenSearch
 
-   private static List<String> firstTenSearch(Collection<String> wordHashSet) {
+   public static List<String> firstTenSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
@@ -284,7 +292,7 @@ public class DMagic {
       return returnList;
    } //firstTenSearch
 
-   private static List<String> randomTenSearch(List<String> wordHashSet, Random rng) {
+   public static List<String> randomTenSearch(List<String> wordHashSet, Random rng) {
       ArrayList<String> returnList = new ArrayList<String>();
       for(int i = 0; i < 10; i++) {
          returnList.add(wordHashSet.get(rng.nextInt(wordHashSet.size())));
@@ -292,7 +300,7 @@ public class DMagic {
       return returnList;
    } //randomTenSearch
 
-   private static List<String> palendromeSearch(Collection<String> wordHashSet) {
+   public static List<String> palendromeSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
       ArrayList<String> returnList = new ArrayList<String>();
       while(iter.hasNext()) {
@@ -304,7 +312,7 @@ public class DMagic {
       return returnList;
    } //palendrome
 
-   private static String longestLine(Collection<String> wordList) {
+   public static String longestLine(Collection<String> wordList) {
       Iterator iter = wordList.iterator();
       String longestLine = "";
       int lineLength = 0;
@@ -319,7 +327,7 @@ public class DMagic {
    } //longest len
 
 
-   private static boolean isPalendrome( String inputString ) {
+   public static boolean isPalendrome( String inputString ) {
       boolean returnValue = false;
       int splitPoint = inputString.length()/2;
       int splitOverflow = inputString.length()%2;
@@ -340,7 +348,7 @@ public class DMagic {
    }
 
 
-   private static int readWordList(File wordFile, HashSet<String> wordHashSet) {
+   public static int readWordList(File wordFile, HashSet<String> wordHashSet) {
       int wordCount = 0;
       try {
          Scanner wordScanner = new Scanner(wordFile);
@@ -358,7 +366,7 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
-   private static int readWordList(File wordFile, TreeSet<String> wordHashSet) {
+   public static int readWordList(File wordFile, TreeSet<String> wordHashSet) {
       int wordCount = 0;
       try {
          Scanner wordScanner = new Scanner(wordFile);
@@ -374,7 +382,7 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
-   private static int readWordList(File wordFile, LinkedHashSet<String> wordHashSet) {
+   public static int readWordList(File wordFile, LinkedHashSet<String> wordHashSet) {
       int wordCount = 0;
       try {
          Scanner wordScanner = new Scanner(wordFile);
@@ -390,7 +398,7 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
-   private static int readWordList(File wordFile, List<String> wordHashSet) {
+   public static int readWordList(File wordFile, List<String> wordHashSet) {
       int wordCount = 0;
       try {
          Scanner wordScanner = new Scanner(wordFile);
@@ -406,7 +414,7 @@ public class DMagic {
       return wordCount;
    } //readWordList
 
-   private static int readWordList(File wordFile, LinkedList<String> wordHashSet) {
+   public static int readWordList(File wordFile, LinkedList<String> wordHashSet) {
       int wordCount = 0;
       try {
          Scanner wordScanner = new Scanner(wordFile);
