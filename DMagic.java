@@ -1,3 +1,14 @@
+/** 
+  * Dictionary Macic (DMagic) is a set of utilities for manipulating a
+  * dictionary list of words and performing search and sort operations
+  * on them.
+  * <p>
+  * DMagic can also handle the loading of dictionary lists to and from
+  * various file formats.
+  * 
+  * @see Collections, File
+  */
+
 // (c) me & GPL3
 // Dictionary Magic is just a play around with various java collections
 
