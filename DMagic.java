@@ -86,7 +86,7 @@ public class DMagic {
       resultList = firstTenSearch(wordHashSet);
       printResultList(resultList, "First Ten Search using Hash Set");
       resultList = palendromeSearch(wordHashSet);
-      resultList = trimShortWords( resultList, 5 );
+      resultList = trimShortWords( resultList, 6 );
       printResultList(resultList, "Palendrome Search using Hash Set");
 
       resultList = firstTenSearch(wordTreeSet);
@@ -108,7 +108,7 @@ public class DMagic {
       resultList = randomTenSearch(linkedList, rng);
       printResultList(resultList, "Random Ten Search using Linked List");
       resultList = palendromeSearch(linkedList);
-      resultList = trimShortWords( resultList, 5 );
+      resultList = trimShortWords( resultList, 6 );
       printResultList(resultList, "Palendrome Search using Linked List");
       System.out.println(" Longest Palendrome: " + longestLine(resultList));
 
@@ -129,7 +129,7 @@ public class DMagic {
           }
       }
 
-      List<String> notShortList = trimShortWords( linkedList, 2 );
+      List<String> notShortList = trimShortWords( linkedList, 3 );
       notShortList = dropFromList( notShortList, 90 );
       Map<String, String> palendromePairs = new HashMap<String, String>();
       findPalendromePairs(notShortList, palendromePairs);
@@ -170,10 +170,18 @@ public class DMagic {
        return returnList;
    } //notshort
 
+/** 
+  * trimShortWords will create a new list with only the words from the
+  * origional list that have a length of at least minLength.
+  * 
+  * @param inputList The origional list to create the sub-list with.
+  * @param minLength The minimum length of a string to be included in the new sub-list.
+  * @return          Returns a sub-list containing Strings from inputList of minLength length or longer.
+  */
    public static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
        ArrayList<String> returnList = new ArrayList<String>();
        for ( String thisWord : inputList ) {
-           if( thisWord.length() > minLength ) {
+           if( thisWord.length() >= minLength ) {
                returnList.add(thisWord);
            } 
        }
