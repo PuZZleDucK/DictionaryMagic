@@ -156,7 +156,7 @@ public class DMagic {
   * 
   * @param inputList   The origional list to create the sub-list with.
   * @param dropPercent The number out of 100 of items to not include in the new sub-list.
-  * @return            Returns a sub-list containing (100-propPercent)% of the inputList
+  * @return            A sub-list containing (100-dropPercent)% of the inputList
   */
    public static List<String> dropFromList ( List<String> inputList, int dropPercent ) {
        ArrayList<String> returnList = new ArrayList<String>();
@@ -176,7 +176,7 @@ public class DMagic {
   * 
   * @param inputList The origional list to create the sub-list with.
   * @param minLength The minimum length of a string to be included in the new sub-list.
-  * @return          Returns a sub-list containing Strings from inputList of minLength length or longer.
+  * @return          A sub-list containing Strings from inputList of minLength length or longer.
   */
    public static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
        ArrayList<String> returnList = new ArrayList<String>();
@@ -442,7 +442,7 @@ public class DMagic {
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
   * @param wordHashSet The HashSet to write words into.
-  * @return            Returns a count of how many words were entered.
+  * @return            A count of how many words were entered.
   */
    public static int readWordList(File wordFile, HashSet<String> wordHashSet) {
       int wordCount = 0;
@@ -469,7 +469,7 @@ public class DMagic {
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
   * @param wordHashSet The TreeSet to write words into.
-  * @return            Returns a count of how many words were entered.
+  * @return            A count of how many words were entered.
   */
    public static int readWordList(File wordFile, TreeSet<String> wordHashSet) {
       int wordCount = 0;
@@ -494,7 +494,7 @@ public class DMagic {
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
   * @param wordHashSet The LinkedHashSet to write words into.
-  * @return            Returns a count of how many words were entered.
+  * @return            A count of how many words were entered.
   */
    public static int readWordList(File wordFile, LinkedHashSet<String> wordHashSet) {
       int wordCount = 0;
@@ -519,7 +519,7 @@ public class DMagic {
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
   * @param wordHashSet The List to write words into.
-  * @return            Returns a count of how many words were entered.
+  * @return            A count of how many words were entered.
   */
    public static int readWordList(File wordFile, List<String> wordHashSet) {
       int wordCount = 0;
@@ -544,7 +544,7 @@ public class DMagic {
   * Duplicate words are not inserted, only lower case words are inserted.
   * @param wordFile    The file to read the word list from.
   * @param wordHashSet The LinkedList to write words into.
-  * @return            Returns a count of how many words were entered.
+  * @return            A count of how many words were entered.
   */
    public static int readWordList(File wordFile, LinkedList<String> wordHashSet) {
       int wordCount = 0;
