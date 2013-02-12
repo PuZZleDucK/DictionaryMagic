@@ -28,7 +28,8 @@ import java.lang.Runtime;
   * DMagic can also handle the loading of dictionary lists to and from
   * various file formats.
   * 
-  * @see Collections File
+  * @author PuZZleDucK
+  * @see    Collections File
   */
 public class DMagic {
    public static List<String> symetricCharacters = new ArrayList<String>();
@@ -154,8 +155,8 @@ public class DMagic {
   * dropFromList will create a new <code>List</code> with only (100-propPercent) out
   * of every 100 words included in the <code>List</code>.
   * 
-  * @param inputList   The origional list to create the sub-list with.
-  * @param dropPercent The number out of 100 of items to not include in the new sub-list.
+  * @param inputList   The origional list to create the sub-list with
+  * @param dropPercent The number out of 100 of items to not include in the new sub-list
   * @return            A sub-list containing (100-dropPercent)% of the inputList
   * @see               List String
   */
@@ -177,7 +178,7 @@ public class DMagic {
   * 
   * @param inputList The origional list to create the sub-list with.
   * @param minLength The minimum length of a string to be included in the new sub-list.
-  * @return          A sub-list containing Strings from inputList of minLength length or longer.
+  * @return          A sub-list containing Strings from inputList of minLength length or longer
   * @see             List Collection String
   */
    public static List<String> trimShortWords ( Collection<String> inputList, int minLength ) {
@@ -196,8 +197,8 @@ public class DMagic {
   * from the origional <code>List</code> that form a pair of words which form a
   * palendrome when concatenated together, for example "dog" and "god".
   * 
-  * @param wordList     The origional list to create the Map with.
-  * @param anagramPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty.
+  * @param wordList     The origional list to create the Map with
+  * @param anagramPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty
   */
    public static void findPalendromePairs(List<String> wordList, Map<String, String> anagramPairs ) {
       for ( String thisWord : wordList ) {
@@ -215,8 +216,8 @@ public class DMagic {
   * from the origional <code>List</code> that form a pair of words which form a visual
   * palendrome when concatenated together, for example "bob" and "dod".
   * 
-  * @param wordList      The origional list to create the Map with.
-  * @param symetricPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty.
+  * @param wordList      The origional list to create the Map with
+  * @param symetricPairs This is the Map into which the found pairs will be added, it must be initialized, but does not have to be empty
   */
    public static void findSymetricPairs(List<String> wordList, Map<String, String> symetricPairs ) {
       for ( String thisWord : wordList ) {
@@ -260,8 +261,8 @@ public class DMagic {
   * with the alphabetical ordering of the letters. eg. "cat", and "tac"
   * would both be placed in the same group and keyed with "act".
   * 
-  * @param wordList      The origional list to create the Map and groups with.
-  * @param anagramGroups This is the Map into which the found groups will be added, it must be initialized, but does not have to be empty.
+  * @param wordList      The origional list to create the Map and groups with
+  * @param anagramGroups This is the Map into which the found groups will be added, it must be initialized, but does not have to be empty
   */
    public static void groupAnagrams(List<String> wordList, Map<String, List<String>> anagramGroups) {
       for ( String thisWord : wordList ) {
@@ -284,8 +285,8 @@ public class DMagic {
   * printResultList is a convinience method to simply print the  
   * supplied <code>List</code> with a given heading.
   * 
-  * @param printList The list to be formatted and displayed.
-  * @param title     The title to be included in the output.
+  * @param printList The list to be formatted and displayed
+  * @param title     The title to be included in the output
   */
    public static void printResultList(List<String> printList, String title) {
       System.out.println(" == "+title+ " == ");
@@ -303,8 +304,8 @@ public class DMagic {
   * printResultList is a convinience method to simply print the  
   * supplied <code>Map</code> with a given heading.
   * 
-  * @param printList The map to be formatted and displayed.
-  * @param title     The title to be included in the output.
+  * @param printList The map to be formatted and displayed
+  * @param title     The title to be included in the output
   */
    public static void printPairResultList(Map<String, String> printList, String title) {
       System.out.println(" == "+title+ " == ");
@@ -327,8 +328,8 @@ public class DMagic {
 /** 
   * lastTenSearch creates a <code>List</code> of the final 10 elements in a <code>TreeSet</code>.
   * 
-  * @param wordHashSet The TreeSet to be searched.
-  * @return            A List of the final 10 elements.
+  * @param wordHashSet The TreeSet to be searched
+  * @return            A List of the final 10 elements
   */
    public static List<String> lastTenSearch(TreeSet<String> wordHashSet) {
       ArrayList<String> returnList = new ArrayList<String>();
@@ -341,8 +342,8 @@ public class DMagic {
 /** 
   * firstTenSearch creates a <code>List</code> of the first 10 elements in a <code>Collection</code>.
   * 
-  * @param wordHashSet The Collection to be searched.
-  * @return            A List of the first 10 elements.
+  * @param wordHashSet The Collection to be searched
+  * @return            A List of the first 10 elements
   */
    public static List<String> firstTenSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
@@ -356,9 +357,9 @@ public class DMagic {
 /** 
   * randomTenSearch creates a <code>List</code> of 10 random elements from a <code>List</code>.
   * 
-  * @param wordHashSet The List to be searched.
-  * @param rng         The random number generator to use.
-  * @return            A List of 10 random elements.
+  * @param wordHashSet The List to be searched
+  * @param rng         The random number generator to use
+  * @return            A List of 10 random elements
   */
    public static List<String> randomTenSearch(List<String> wordHashSet, Random rng) {
       ArrayList<String> returnList = new ArrayList<String>();
@@ -372,8 +373,8 @@ public class DMagic {
   * palendromeSearch will create a new <code>List</code> of words from the
   * origional <code>Collection</code> that are palendromes.
   * 
-  * @param wordHashSet  The origional Collection to create the List with.
-  * @return             A list of the palendromes from the origional Collection.
+  * @param wordHashSet  The origional Collection to create the List with
+  * @return             A list of the palendromes from the origional Collection
   */
    public static List<String> palendromeSearch(Collection<String> wordHashSet) {
       Iterator iter = wordHashSet.iterator();
@@ -391,8 +392,8 @@ public class DMagic {
   * longestLine will search a <code>Collection</code> of <code>Strings</code> and return the longest
   * <code>String</code> it finds.
   * 
-  * @param wordList The origional Collection to search.
-  * @return         The longest String found in the Collection.
+  * @param wordList The origional Collection to search
+  * @return         The longest String found in the Collection
   */
    public static String longestLine(Collection<String> wordList) {
       Iterator iter = wordList.iterator();
@@ -413,8 +414,8 @@ public class DMagic {
   * isPalendrome will check if the input <code>String</code> is a palendrome and returns 
   * true if it is and false otherwise.
   * 
-  * @param inputString The String to check.
-  * @return            True if the input is a palendrome and false otherwise.
+  * @param inputString The String to check
+  * @return            True if the input is a palendrome and false otherwise
   */
    public static boolean isPalendrome( String inputString ) {
       boolean returnValue = false;
@@ -442,9 +443,9 @@ public class DMagic {
   * from the <code>File</code> and inserts it into the <code>HashSet</code>.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
-  * @param wordFile    The file to read the word list from.
-  * @param wordHashSet The HashSet to write words into.
-  * @return            A count of how many words were entered.
+  * @param wordFile    The file to read the word list from
+  * @param wordHashSet The HashSet to write words into
+  * @return            A count of how many words were entered
   */
    public static int readWordList(File wordFile, HashSet<String> wordHashSet) {
       int wordCount = 0;
@@ -469,9 +470,9 @@ public class DMagic {
   * from the <code>File</code> and inserts it into the <code>TreeSet</code>.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
-  * @param wordFile    The file to read the word list from.
-  * @param wordHashSet The TreeSet to write words into.
-  * @return            A count of how many words were entered.
+  * @param wordFile    The file to read the word list from
+  * @param wordHashSet The TreeSet to write words into
+  * @return            A count of how many words were entered
   */
    public static int readWordList(File wordFile, TreeSet<String> wordHashSet) {
       int wordCount = 0;
@@ -494,9 +495,9 @@ public class DMagic {
   * from the <code>File</code> and inserts it into the LinkedHashSet.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
-  * @param wordFile    The file to read the word list from.
-  * @param wordHashSet The LinkedHashSet to write words into.
-  * @return            A count of how many words were entered.
+  * @param wordFile    The file to read the word list from
+  * @param wordHashSet The LinkedHashSet to write words into
+  * @return            A count of how many words were entered
   */
    public static int readWordList(File wordFile, LinkedHashSet<String> wordHashSet) {
       int wordCount = 0;
@@ -519,9 +520,9 @@ public class DMagic {
   * from the <code>File</code> and inserts it into the List.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
-  * @param wordFile    The file to read the word list from.
-  * @param wordHashSet The List to write words into.
-  * @return            A count of how many words were entered.
+  * @param wordFile    The file to read the word list from
+  * @param wordHashSet The List to write words into
+  * @return            A count of how many words were entered
   */
    public static int readWordList(File wordFile, List<String> wordHashSet) {
       int wordCount = 0;
@@ -544,9 +545,9 @@ public class DMagic {
   * from the <code>File</code> and inserts it into the <code>LinkedList</code>.
   * <p>
   * Duplicate words are not inserted, only lower case words are inserted.
-  * @param wordFile    The file to read the word list from.
-  * @param wordHashSet The LinkedList to write words into.
-  * @return            A count of how many words were entered.
+  * @param wordFile    The file to read the word list from
+  * @param wordHashSet The LinkedList to write words into
+  * @return            A count of how many words were entered
   */
    public static int readWordList(File wordFile, LinkedList<String> wordHashSet) {
       int wordCount = 0;
