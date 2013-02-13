@@ -1,4 +1,4 @@
-
+package com.puzzleduck.wordTools;
 // (c) me & GPL3
 // Dictionary Magic is just a play around with various java collections
 
